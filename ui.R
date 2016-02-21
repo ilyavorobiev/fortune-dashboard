@@ -5,7 +5,7 @@ library(googleVis)
 shinyUI(#pageWithSidebar(
   
   navbarPage("Fortune 500 Analysis",
-    tabPanel("Geo distribution",
+    tabPanel("Geographical distribution",
       sidebarLayout(
         sidebarPanel(
           # Metric select box
@@ -20,7 +20,7 @@ shinyUI(#pageWithSidebar(
           ),
         mainPanel(
           # GEO Chart
-          p("In this section you can find information on geo distribution of Fortune 500 companies by common metrics. Also, you can filter by Sector to see State tendency to some Sector."),
+          p("In this section you can find information on geo distribution of Fortune 500 companies by common metrics. Also, you can filter by Sector to see State relation to some Sector."),
           htmlOutput("geoChart")
         )
       )
@@ -29,7 +29,7 @@ shinyUI(#pageWithSidebar(
       sidebarLayout(
         sidebarPanel(
           # Metric select box
-          selectInput("barDimension", label = h3("Dimension"), 
+          selectInput("barDimension", label = h3("Compare By"), 
                       choices = list("State" = "State", "Sector" = "Sector"),
                       selected = "State"),
           # Metric select box
@@ -40,7 +40,7 @@ shinyUI(#pageWithSidebar(
           ),
           mainPanel(
             # Bar Chart
-            p("In this section you can see comparison of Fortune 500 companies common metrics by State and Sector."),
+            p("In this section you can see comparison of Fortune 500 companies common metrics by State or Sector."),
             htmlOutput("barChart")
           )
       )  

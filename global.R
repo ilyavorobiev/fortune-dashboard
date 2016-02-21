@@ -1,7 +1,7 @@
 # Download Fortune Global 500 file
-#url <- "https://raw.githubusercontent.com/ilyavorobiev/fortune-grabber/master/output/fortune1000.csv"
-url <- "/Users/ivorobiev/Desktop/Repos/fortune-grabber/output/fortune1000.csv"
-companies <- read.csv(url, header = TRUE)
+library(RCurl)
+url <- "https://raw.githubusercontent.com/ilyavorobiev/fortune-grabber/master/output/fortune1000.csv"
+companies <- read.csv(textConnection(getURL(url)), header = TRUE)
 companies <- companies[0:500,]
 
 # Set datatypes
